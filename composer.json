@@ -1,0 +1,16 @@
+{
+  "name": "SDEV328_JobApp2",
+  "description": "Job App version 2",
+  "authors": [
+    {
+      "name": "Ming",
+      "email": "Mingrkli@gmail.com"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  },
+  "autoload": {
+    "classmap": [ "classes/", "model/", "controllers/" ]
+  }
+}
