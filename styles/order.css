@@ -1,0 +1,48 @@
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+
+    padding-top: 5rem;
+}
+
+main h2 {
+    color: var(--c-button-hover);
+}
+
+main label,
+main div input[type="text"] {
+    font-size: 1.5rem;
+}
+
+/* Order Form Part 1
+================================================================================== */
+main div {
+    width: 100%;
+}
+
+main div input[type="text"] {
+    width: 100%;
+    padding: 0.1rem;
+}
+
+main div input[type="text"]:focus {
+    padding: 0.1rem;
+
+    border: 2px solid var(--c-button-hover);
+    box-shadow: 0 0 10px var(--c-button-hover);
+    outline: none;
+}
+
+main label {
+    transition: 200ms ease-in-out;
+}
+
+main label:hover {
+    color: var(--c-button-hover);
+    text-shadow: 0 0 10px var(--c-button-hover);
+
+    cursor: pointer;
+}

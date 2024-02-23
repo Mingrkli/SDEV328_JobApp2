@@ -1,0 +1,31 @@
+<nav>
+    <div>
+        <a
+                id="logo"
+                href="https://mingli.greenriverdev.com/328/SDEV328_JobApp2/"
+        >GRC Diner</a
+        >
+        <span id="menuBtn" class="material-symbols-outlined"> menu </span>
+    </div>
+
+    <div id="menuBtnShow">
+        <!-- Home -->
+        <check if="{{ @location=='home' }}">
+            <a class="btn" href="#">Internship</a>
+            <a class="btn" href="menu">Menu</a>
+        </check>
+        <!-- Menu -->
+        <check if="{{ @location=='menu' }}">
+            <a class="btn" href="order">Order</a>
+        </check>
+        <!-- Order -->
+        <check if="{{ @location=='order'}}">
+            <a class="btn" href="menu">Back</a>
+            <button type="submit" class="btn" name="submitBtn">Submit</button>
+        </check>
+        <!-- Summary -->
+        <check if="{{ @location=='summary'}}">
+            <a class="btn" href="order">Reorder</a>
+        </check>
+    </div>
+</nav>

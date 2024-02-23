@@ -1,0 +1,13 @@
+<h2>Drinks</h2>
+<repeat group="{{ @menuDrinks }}" key="{{ @menuDrinksName }}" value="{{ @menuDrinksDetails }}">
+    <article>
+        <div>
+            <h3>{{ @menuDrinksName }}</h3>
+            <p>{{ @menuDrinksDetails[0] }}</p>
+        </div>
+
+        <p>
+            {{ @menuDrinksDetails[1] }}
+        </p>
+    </article>
+</repeat>

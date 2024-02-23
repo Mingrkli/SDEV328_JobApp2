@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Order Form</title>
+        <include href="views/common/htmlHead.html" />
+        <link rel="stylesheet" href="styles/order.css">
+    </head>
+
+    <body>
+        <!-- Nav Bar -->
+        <include href="views/common/nav.html" />
+
+        <main>
+            <h1>Thank you for your order!</h1>
+
+            <div>
+                <h2>You Ordered</h2>
+                <p>{{ @SESSION.order->getFood() }} for {{ @SESSION.order->getMeal() }}</p>
+            </div>
+
+            <div>
+                <h2>Condiments: </h2>
+                <p>{{ @SESSION.order->getCondiments() }}</p>
+            </div>
+        </main>
+    </body>
+</html>

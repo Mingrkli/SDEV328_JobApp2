@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Order Form</title>
+        <include href="views/common/htmlHead.html" />
+        <link rel="stylesheet" href="styles/order.css">
+    </head>
+
+    <body>
+        <form action="#" method="post">
+            <!-- Nav Bar -->
+            <include href="views/common/nav.html" />
+
+            <main>
+                <h1>The Diner: Order Form</h1>
+
+                <!-- Select Menu -->
+                <div>
+                    <h2>Select a menu</h2>
+
+                    <!-- Display an error if there is one -->
+                    <check if="{{ isset(@errors['orderMenu']) }}">
+                        <span class="error">*{{ @errors['orderMenu'] }}</span>
+                    </check>
+
+                    <repeat group="{{ @menus }}" key="{{ @menuID }}" value="{{ @menuName }}">
+                        <div>
+                            <input type="radio" id="{{ @menuID }}" name="orderMenu" value="{{ @menuName }}">
+                            <label for="{{ @menuID }}">{{ @menuName }}</label>
+                        </div>
+                    </repeat>
+                </div>
+
+                <!-- Food Input -->
+                <div>
+                    <h2>What food would you like to order?</h2>
+
+                    <!-- Display an error if there is one -->
+                    <check if="{{ isset(@errors['orderName']) }}">
+                        <span class="error">*{{ @errors['orderName'] }}</span>
+                    </check>
+
+                    <input type="text" name="orderName" placeholder="Pancakes">
+                </div>
+
+                <!-- Condiments -->
+                <div>
+                    <h2>Optional: Select Condiments</h2>
+                    <repeat group="{{ @cons }}" key="{{ @conID }}" value="{{ @conName }}">
+                        <div>
+                            <input type="checkbox" id="{{ @conID }}" name="orderCon[]" value="{{ @conName }}">
+                            <label for="{{ @conID }}">{{ @conName }}</label>
+                        </div>
+                    </repeat>
+
+                </div>
+            </main>
+        </form>
+    </body>
+</html>

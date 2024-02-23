@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Menus</title>
+        <include href="views/common/htmlHead.html" />
+        <link rel="stylesheet" href="styles/menu.css" >
+        <script src="scripts/menuSelectionBtns.js" defer ></script>
+    </head>
+
+    <body>
+        <form action="#" method="post">
+            <!-- Nav Bar -->
+            <include href="views/common/nav.html" />
+
+            <main>
+                <!-- Menu Selections -->
+                <div id="menu-selection">
+                    <button type="button" value="selectionBreakfast" class="btn">Breakfast</button>
+                    <button type="button" value="selectionLunch" class="btn">Lunch</button>
+                    <button type="button" value="selectionDinner" class="btn">Dinner</button>
+                </div>
+
+                <!-- Menu Show -->
+                <section id="selectionBreakfast" class="the-menu">
+                    <h2>Breakfast Foods</h2>
+                    <repeat group="{{ @menuBreakfasts }}" key="{{ @menuBreakfastsName }}" value="{{ @menuBreakfastsDetails }}">
+                        <article>
+                            <div>
+                                <h3>{{ @menuBreakfastsName }}</h3>
+                                <p>{{ @menuBreakfastsDetails[0] }}</p>
+                            </div>
+
+                            <p>
+                                {{ @menuBreakfastsDetails[1] }}
+                            </p>
+                        </article>
+                    </repeat>
+
+                    <!-- Drinks -->
+                    <include href="views/common/menuDrinks.html" />
+                </section>
+
+                <section id="selectionLunch" class="the-menu">
+                    <h2>Lunch Foods Coming Soon!</h2>
+                    <!-- Drinks -->
+                    <include href="views/common/menuDrinks.html" />
+                </section>
+
+                <section id="selectionDinner" class="the-menu">
+                    <h2>Dinner Foods Coming Soon!</h2>
+                    <!-- Drinks -->
+                    <include href="views/common/menuDrinks.html" />
+                </section>
+            </main>
+        </form>
+    </body>
+</html>
