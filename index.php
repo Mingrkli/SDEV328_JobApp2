@@ -5,12 +5,17 @@
 
     // Require the autoload file
     require_once('vendor/autoload.php');
-    require_once('model/data-layer.php');
-    require_once('model/validate.php');
 
-    // Testing Classes
+    // Testing Order Classes
 //    $order = new Order("pizza", "lunch");
 //    var_dump($order);
+
+    // Testing DataLayer Class
+//    var_dump(DataLayer::getMenu());
+//    var_dump(DataLayer::getConds());
+
+    // Testing DataLayer Class
+//    echo Validate::validFood("Pancakes");
 
     // Instantiate the F3 (Fat-Free Framework) Base class
     $f3 = Base::instance(); // Static method would use "::"
@@ -33,8 +38,8 @@
         $f3->set('location', 'menu');
 
         // Add data to the F3 "hive"
-        $f3 -> set('menuBreakfasts', getMenuBreakfast());
-        $f3 -> set('menuDrinks', getMenuDrinks());
+        $f3 -> set('menuBreakfasts', DataLayer::getMenuBreakfast());
+        $f3 -> set('menuDrinks', DataLayer::getMenuDrinks());
 
         $view = new Template();
         echo $view -> render('views/menu.html');
@@ -55,7 +60,7 @@
 
                 // Validate the data
                 // Food
-                if(validFood($_POST["orderName"])) {
+                if(Validate::validFood($_POST["orderName"])) {
                     $food = $_POST['orderName'];
                 }
                 else {
@@ -63,7 +68,7 @@
                 }
 
                 // Meal
-                if(isset($meal) and validMeal($_POST['orderMenu'])) {
+                if(isset($meal) and Validate::validMeal($_POST['orderMenu'])) {
                     $meal = $_POST['orderMenu'];
                 }
                 else {
@@ -94,8 +99,8 @@
         }
 
         // Add data to the F3 "hive"
-        $f3 -> set('menus', getMenu());
-        $f3 -> set('cons', getConds());
+        $f3 -> set('menus', DataLayer::getMenu());
+        $f3 -> set('cons', DataLayer::getConds());
 
         $view = new Template();
         echo $view -> render('views/order1.html');
