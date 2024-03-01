@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <include href="views/common/htmlHead.html" />
+        <link rel="stylesheet" href="styles/order.css">
+        <link rel="stylesheet" href="styles/internship.css">
+    </head>
+
+    <body>
+        <form action="#" method="post">
+            <!-- Nav Bar -->
+            <include href="views/common/nav.html" />
+
+            <main>
+                <h1>Internship Form</h1>
+
+                <!-- First & Last Name -->
+                <div>
+                    <div>
+                        <h2>Mailling Lists</h2>
+                        <input id="mailingLists" type="checkbox" name="mailingLists">
+                        <label for="mailingLists">Sign me up for job opening mailing lists!</label>
+                    </div>
+                </div>
+
+                <!-- First & Last Name -->
+                <div>
+                    <!-- Display an error if there is one -->
+                    <check if="{{ isset(@errors['name']) }}">
+                        <span class="error">*{{ @errors['name'] }}</span>
+                    </check>
+
+                    <div class="double">
+                        <div>
+                            <h2>*First Name</h2>
+                            <input type="text" name="firstName" placeholder="First Name">
+                        </div>
+
+                        <div>
+                            <h2>*Last Name</h2>
+                            <input type="text" name="lastName" placeholder="Last Name">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <h2>*Email</h2>
+
+                    <!-- Display an error if there is one -->
+                    <check if="{{ isset(@errors['email']) }}">
+                        <span class="error">*{{ @errors['email'] }}</span>
+                    </check>
+
+                    <input type="text" name="email" placeholder="email@gmail.com">
+                </div>
+
+                <!-- State & Phone -->
+                <div>
+                    <div class="double">
+                        <div>
+                            <h2>State</h2>
+
+                            <select name="state">
+                                <option value="California">
+                                    California
+                                </option>
+                                <option value="Oregon">Oregon</option>
+                                <option value="Washington" selected>
+                                    Washington
+                                </option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <h2>*Phone</h2>
+                            <!-- Display an error if there is one -->
+                            <check if="{{ isset(@errors['phone']) }}">
+                                <span class="error">*{{ @errors['phone'] }}</span>
+                            </check>
+                            <input
+                                    type="text"
+                                    name="phone"
+                                    placeholder="222-333-4444"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Biography -->
+                <div>
+                    <h2>Biography</h2>
+                    <textarea
+                            name="textBox"
+                            placeholder="Text here..."
+                    ></textarea>
+                </div>
+
+                <!-- Github Link -->
+                <div>
+                    <h2>*GitHub Link</h2>
+                    <!-- Display an error if there is one -->
+                    <check if="{{ isset(@errors['gitHubLink']) }}">
+                        <span class="error">*{{ @errors['gitHubLink'] }}</span>
+                    </check>
+                    <input
+                            type="text"
+                            name="gitHubLink"
+                            placeholder="github.com/my_github"
+                    />
+                </div>
+
+                <!-- Years Experience & Willing To Relocate -->
+                <div>
+                    <!-- Display an error if there is one -->
+                    <check if="{{ isset(@errors['experience']) }}">
+                        <span class="error">*{{ @errors['experience'] }}</span>
+                    </check>
+
+                    <div class="double">
+                        <div>
+                            <h2>*Years Experience</h2>
+                            <repeat group="{{ @experiences }}" key="{{ @id }}" value="{{ @experience }}">
+                                <input
+                                        type="radio"
+                                        id="{{ @id }}"
+                                        name="yearsExperience"
+                                        value="{{ @experience }}"
+                                />
+                                <label for="{{ @id }}">{{ @experience }}</label>
+                            </repeat>
+                        </div>
+
+                        <div>
+                            <h2>Willing To Relocate</h2>
+                            <div class="radioContainer">
+                                <input
+                                        id="willingToRelocateYes"
+                                        type="radio"
+                                        name="willingToRelocate"
+                                        value="yes"/>
+                                <label for="willingToRelocateYes">Yes</label>
+
+                                <input
+                                        id="willingToRelocateNo"
+                                        type="radio"
+                                        name="willingToRelocate"
+                                        value="no"
+                                />
+                                <label for="willingToRelocateNo">No</label>
+
+                                <input
+                                        id="willingToRelocateMaybe"
+                                        type="radio"
+                                        name="willingToRelocate"
+                                        value="maybe"
+                                        checked="checked"
+                                />
+                                <label for="willingToRelocateMaybe">Maybe</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- softwareJobs & industryVerticals -->
+                <div>
+                    <h2>Software Development Jobs</h2>
+                    <div>
+                        <repeat group="{{ @softwareJobs }}" key="{{ @softwareJobsID }}" value="{{ @softwareJob }}">
+                            <input
+                                    type="checkbox"
+                                    id="{{ @softwareJobsID }}"
+                                    name="softwareJobs[]"
+                                    value="{{ @softwareJob }}"
+                            />
+                            <label for="{{ @softwareJobsID }}">{{ @softwareJob }}</label>
+                        </repeat>
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Industry Verticals</h2>
+                    <div>
+                        <repeat group="{{ @industryVerticals }}" key="{{ @industryVerticalsID }}" value="{{ @industryVertical }}">
+                            <input
+                                    type="checkbox"
+                                    id="{{ @industryVerticalsID }}"
+                                    name="industryVerticals[]"
+                                    value="{{ @industryVertical }}"
+                            />
+                            <label for="{{ @industryVerticalsID }}">{{ @industryVertical }}</label>
+                        </repeat>
+                    </div>
+                </div>
+            </main>
+        </form>
+    </body>
+</html>

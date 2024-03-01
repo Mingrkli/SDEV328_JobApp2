@@ -41,4 +41,18 @@ class DataLayer {
     static function getConds() {
         return array('con1'=>'Ketchup','con2'=>'Mustard', 'con3'=>'Mayo', 'con4'=>'Sriracha', 'con5'=>'Relish');
     }
+
+    // Job App
+    // =========================================================================
+    static function getExperience() {
+        return array('experienceID1'=>'0-2', 'experienceID2'=>'2-4', 'experienceID3'=>'4+');
+    }
+
+    static function getSoftwareJobs() {
+        return array('SJ1'=>'JavaScript', 'SJ2'=>'PHP', 'SJ3'=>'Java', 'SJ4'=>'Python', 'SJ5'=>'HTML', 'SJ6'=>'CSS', 'SJ7'=>'ReactJS', 'SJ8'=>'NodeJs');
+    }
+
+    static function getIndustryVerticals() {
+        return array('IV1'=>'Health tech', 'IV2'=>'Ag tech', 'IV3'=>'HR tech', 'IV4'=>'Industrial tech', 'IV5'=>'Cybersecurity');
+    }
 }

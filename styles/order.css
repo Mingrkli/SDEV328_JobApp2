@@ -13,7 +13,9 @@ main h2 {
 }
 
 main label,
-main div input[type="text"] {
+main div input[type="text"],
+select,
+textarea {
     font-size: 1.5rem;
 }
 
@@ -28,7 +30,9 @@ main div input[type="text"] {
     padding: 0.1rem;
 }
 
-main div input[type="text"]:focus {
+main div input[type="text"]:focus,
+select:focus,
+textarea:focus {
     padding: 0.1rem;
 
     border: 2px solid var(--c-button-hover);

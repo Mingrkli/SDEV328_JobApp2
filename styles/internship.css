@@ -1,0 +1,90 @@
+form {
+    padding-top: 7rem;
+
+    max-width: 1200px;
+    width: 100%;
+}
+
+aside {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+
+    padding: 0 1rem;
+}
+
+.job-post {
+    display: flex;
+}
+
+.job-post h2 {
+    padding-bottom: 1rem;
+
+    font-size: 2rem;
+    text-align: center;
+    border-bottom: 2px solid var(--c-highlight);
+}
+
+.job-post p {
+    font-size: 1.3rem;
+}
+
+blockquote div {
+    padding-bottom: 1rem;
+}
+
+blockquote {
+    padding: 0 3rem;
+
+    font-style: italic;
+}
+
+.btn-container-center {
+    display: flex;
+    justify-content: center;
+
+    padding-top: 1rem;
+    width: 100%;
+
+    border-top: 2px solid var(--c-highlight);
+}
+
+img {
+    width: 800px;
+
+    object-fit: cover;
+}
+
+@media screen and (max-width: 800px) {
+    .job-post {
+        flex-direction: column;
+    }
+
+    img {
+        width: 100%;
+    }
+}
+
+/* Internship Form
+=================================================================================================*/
+.double {
+    display: flex;
+    gap: 1rem;
+}
+
+select {
+    width: 100%;
+    height: 35.19px;
+}
+
+textarea {
+    width: 100%;
+    height: 200px;
+
+    resize: vertical;
+}
+
+input[type="radio"]:not(input[type="radio"]:first-child),
+input[type="checkbox"]:not(input[type="checkbox"]:first-child){
+    margin-left: 1rem;
+}

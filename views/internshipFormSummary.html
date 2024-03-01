@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Form Summary</title>
+        <include href="views/common/htmlHead.html" />
+        <link rel="stylesheet" href="styles/order.css">
+        <link rel="stylesheet" href="styles/internshipFormSummary.css">
+    </head>
+
+    <body>
+        <!-- Nav Bar -->
+        <include href="views/common/nav.html" />
+
+        <main>
+            <h1>Thank you for your apply!</h1>
+
+            <img src="images/noIMG.png">
+
+            <div>
+                <h2>Information</h2>
+                <p>Name: {{ @SESSION.userApplication->getFname() }} {{ @SESSION.userApplication->getLname() }}</p>
+                <p>Email: {{ @SESSION.userApplication->getEmail() }}</p>
+                <p>State: {{ @SESSION.userApplication->getState() }}</p>
+                <p>Phone: {{ @SESSION.userApplication->getPhone() }}</p>
+                <p>Github Link: {{ @SESSION.userApplication->getGithub() }}</p>
+                <p>Experience: {{ @SESSION.userApplication->getExperience() }}</p>
+                <p>Willing To Relocate: {{ @SESSION.userApplication->getRelocate() }}</p>
+            </div>
+
+            <check if="{{ @SESSION.mailingLists }}">
+                <div>
+                    <h2>Mailing Lists</h2>
+                    <p>{{ @SESSION.userApplication->getSelectionsJobs() }}, {{ @SESSION.userApplication->getSelectionsVerticals() }}</p>
+                </div>
+            </check>
+
+            <div>
+                <h2>Summary</h2>
+                <p>{{ @SESSION.userApplication->getBio() }}</p>
+            </div>
+
+            <input class="btn" type="button" value="Submit My Appllication!">
+        </main>
+    </body>
+</html>

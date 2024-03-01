@@ -31,7 +31,7 @@ p {
     font-size: 1rem;
 }
 
-#logo {
+.logo {
     color: white;
     font-size: 2rem;
     text-decoration: none;
@@ -102,6 +102,10 @@ nav div:first-child span {
     nav {
         flex-direction: column;
         gap: 0.5rem;
+    }
+
+    nav p {
+        display: none;
     }
 
     nav div:first-child {

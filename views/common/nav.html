@@ -1,17 +1,28 @@
 <nav>
     <div>
-        <a
-                id="logo"
-                href="https://mingli.greenriverdev.com/328/SDEV328_JobApp2/"
-        >GRC Diner</a
-        >
+        <!-- If not internship -->
+        <check if="{{ @location!='internship' }}">
+            <a
+                    class="logo"
+                    href="https://mingli.greenriverdev.com/328/SDEV328_JobApp2/"
+            >GRC Diner</a
+            >
+        </check>
+
+        <!-- If internship -->
+        <check if="{{ @location=='internship' }}">
+            <p>AppCompany LLC</p>
+            <a class="logo" href="https://mingli.greenriverdev.com/328/SDEV328_JobApp2/">Software Development Internship</a>
+            <p>Seattle Washington, Paid, 12 weeks</p>
+        </check>
+
         <span id="menuBtn" class="material-symbols-outlined"> menu </span>
     </div>
 
     <div id="menuBtnShow">
         <!-- Home -->
         <check if="{{ @location=='home' }}">
-            <a class="btn" href="#">Internship</a>
+            <a class="btn" href="internship">Internship</a>
             <a class="btn" href="menu">Menu</a>
         </check>
         <!-- Menu -->
@@ -26,6 +37,19 @@
         <!-- Summary -->
         <check if="{{ @location=='summary'}}">
             <a class="btn" href="order">Reorder</a>
+        </check>
+        <!-- Internship -->
+        <check if="{{ @location=='internship'}}">
+            <a class="btn" href="internshipForm">Apply Now</a>
+        </check>
+        <!-- Internship Form -->
+        <check if="{{ @location=='internshipForm'}}">
+            <a class="btn" href="internship">Back</a>
+            <button type="submit" class="btn" name="submitBtn">Submit</button>
+        </check>
+        <!-- Internship Form -->
+        <check if="{{ @location=='internshipFormSummary'}}">
+            <input class="btn" type="button" value="Submit My Appllication!">
         </check>
     </div>
 </nav>

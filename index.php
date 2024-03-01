@@ -35,13 +35,28 @@
     });
 
     // Define a order route
-    $f3 -> route('GET|POST /order', function($f3) {
+    $f3 -> route('GET|POST /order', function() {
         $GLOBALS['con']->order();
     });
 
     // Define a summary route
-    $f3 -> route('GET /summary',function($f3) {
+    $f3 -> route('GET /summary',function() {
         $GLOBALS['con']->summary();
+    });
+
+    // Define a internship route
+    $f3 -> route('GET /internship',function() {
+        $GLOBALS['con']->internship();
+    });
+
+    // Define a internship form route
+    $f3 -> route('GET|POST /internshipForm',function() {
+        $GLOBALS['con']->internshipForm();
+    });
+
+    // Define a internship form route
+    $f3 -> route('GET|POST /internshipFormSummary',function() {
+        $GLOBALS['con']->internshipFormSummary();
     });
 
     // Run fat-free
